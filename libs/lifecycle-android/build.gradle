@@ -1,0 +1,8 @@
+apply from: "$rootDir/gradle/kotlinAndroidLib.gradle"
+
+dependencies {
+    implementation Libs.lifecycleExtensions
+    implementation Libs.dagger
+
+    testImplementation project(":testing")
+}

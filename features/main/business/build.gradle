@@ -1,0 +1,14 @@
+apply from: "$rootDir/gradle/kotlinLib.gradle"
+
+compileKotlin {
+    kotlinOptions.freeCompilerArgs += ["-module-name", "main.business"]
+}
+
+dependencies {
+    implementation Libs.coroutinesCore
+    api project(':common:business')
+    implementation project(':common:time')
+    implementation Libs.javaxInject
+
+    testImplementation project(':testing')
+}

@@ -1,0 +1,25 @@
+apply from: "$rootDir/gradle/kotlinAndroidLib.gradle"
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    kotlinOptions.freeCompilerArgs += ["-module-name", "main.repository"]
+}
+
+dependencies {
+    implementation Libs.coroutinesCore
+    implementation project(':common:time')
+    implementation project(':features:main:business')
+
+    implementation project(':libs:room')
+    kapt Libs.roomCompiler
+
+    implementation Libs.javaxInject
+
+    testImplementation project(':testing')
+
+    androidTestImplementation project(':testing')
+    androidTestImplementation Libs.androidxTestCore
+    androidTestImplementation Libs.androidxTestJUnit
+    androidTestImplementation Libs.androidxTestRunner
+    androidTestImplementation Libs.androidxTestRules
+}

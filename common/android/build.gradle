@@ -1,0 +1,9 @@
+apply from: "$rootDir/gradle/kotlinAndroidLib.gradle"
+
+android {
+    kotlinOptions.freeCompilerArgs = ["-module-name", "common.android"]
+}
+
+dependencies {
+    api Libs.appCompat
+}

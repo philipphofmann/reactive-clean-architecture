@@ -1,0 +1,9 @@
+apply from: "$rootDir/gradle/kotlinLib.gradle"
+
+dependencies {
+    api Libs.junit
+    api Libs.mockitoCore
+    api Libs.coroutinesTest
+    implementation Libs.kotlinReflection
+
+}

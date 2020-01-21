@@ -1,0 +1,30 @@
+apply plugin: "com.android.library"
+apply plugin: "kotlin-android"
+apply plugin: "kotlin-kapt"
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    buildToolsVersion Versions.buildTools
+    compileSdkVersion Versions.sdkCompile
+    defaultConfig {
+        minSdkVersion Versions.sdkMin
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+    }
+
+    defaultConfig {
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    kotlinOptions.freeCompilerArgs += [
+            "-Xuse-experimental=kotlin.FlowPreview",
+            "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi"
+    ]
+}
+
+dependencies {
+    androidTestImplementation project(':testing')
+}

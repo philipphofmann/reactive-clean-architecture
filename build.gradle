@@ -1,0 +1,60 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = Versions.kotlin
+
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url 'https://maven.fabric.io/public' }
+    }
+    dependencies {
+        classpath Libs.gradleBuildTools
+        classpath Libs.kotlinGradlePlugin
+        classpath Libs.ktLint
+        classpath Libs.googleServices
+        classpath Libs.fabric
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+plugins {
+    // Unfortunately this forces the version to be a string literal, no variables allowed
+    id "io.gitlab.arturbosch.detekt" version "1.0.0-RC16"
+    id "org.jlleitschuh.gradle.ktlint" version "8.1.0"
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    apply plugin: "io.gitlab.arturbosch.detekt"
+    detekt {
+        toolVersion = Versions.detekt
+        input = files("src/main/kotlin", "src/commonMain/kotlin", "src/test/kotlin", "src/androidTest/kotlin")
+        filters = ".*/resources/.*,.*/build/.*"
+        config = files(rootProject.file("detekt.yml"))
+        reports {
+            xml.enabled = false
+            html.enabled = false
+        }
+    }
+
+    apply plugin: "org.jlleitschuh.gradle.ktlint"
+    ktlint {
+        verbose = true
+        android = true
+    }
+
+    ext.isAndroidLibrary = { project -> project.plugins.hasPlugin("com.android.library") }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

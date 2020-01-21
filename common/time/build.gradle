@@ -1,0 +1,7 @@
+apply from: "$rootDir/gradle/kotlinLib.gradle"
+
+dependencies {
+    api 'com.jakewharton.threetenabp:threetenabp:1.2.0'
+
+    testImplementation project(':testing')
+}

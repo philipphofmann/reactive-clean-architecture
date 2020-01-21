@@ -1,0 +1,31 @@
+apply from: "$rootDir/gradle/kotlinAndroidLib.gradle"
+
+android {
+    kotlinOptions.freeCompilerArgs += ["-module-name", "main.ui"]
+}
+
+dependencies {
+    implementation Libs.coroutinesCore
+    implementation project(':monitoring')
+    implementation project(':common:android')
+    implementation project(':features:main:business')
+    implementation project(':libs:lifecycle-android')
+
+    implementation Libs.constraintLayout
+    compileOnly Libs.javaxInject
+
+
+    // Architecture Components
+    implementation Libs.lifecycleExtensions
+    implementation Libs.lifecycleRuntimeKtx
+    implementation Libs.lifecycleViewModelKtx
+    implementation Libs.lifecycleReactivestreamsKtx
+    kapt Libs.lifecycleCompiler
+
+    // Dagger
+    implementation Libs.dagger
+    kapt Libs.daggerCompiler
+
+    testImplementation project(':testing')
+    testImplementation project(':common:time')
+}

@@ -1,0 +1,10 @@
+<resources>
+  <string name="app_name">Tap</string>
+
+  <string name="reward_awesome">You are awesome</string>
+  <string name="reward_lucky_luke">You\'re faster than Lucky Luke</string>
+  <string name="reward_juck_norris">Juck Norris is jealous</string>
+
+  <string name="tap_level">Level</string>
+
+</resources>

@@ -1,0 +1,11 @@
+apply from: "$rootDir/gradle/kotlinAndroidLib.gradle"
+apply plugin: "kotlin-android-extensions"
+
+dependencies {
+    implementation project(':common:time')
+
+    //Room
+    api Libs.roomRuntime
+    kapt Libs.roomCompiler
+    api Libs.roomKtx
+}

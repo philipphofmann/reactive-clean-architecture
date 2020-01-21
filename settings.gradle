@@ -1,0 +1,13 @@
+include ':app',
+        ':common:android',
+        ':common:business',
+        ':common:time',
+        ':features:main',
+        ':features:main:business',
+        ':features:main:repository',
+        ':features:main:ui',
+        ':libs:room',
+        ':libs:lifecycle-android',
+        ':monitoring',
+        ':monitoring-android',
+        ':testing'

@@ -1,0 +1,21 @@
+apply from: "$rootDir/gradle/kotlinAndroidLib.gradle"
+
+android {
+    kotlinOptions.freeCompilerArgs += ["-module-name", "main"]
+}
+
+dependencies {
+    implementation project(':common:android')
+    api project(':features:main:business')
+    api project(':features:main:ui')
+    api project(':features:main:repository')
+
+    implementation project(':libs:room')
+    kapt Libs.roomCompiler
+
+    // Dagger
+    implementation Libs.dagger
+    kapt Libs.daggerCompiler
+
+    testImplementation project(':testing')
+}

@@ -1,0 +1,82 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "kotlin-kapt"
+    id "kotlin-android-extensions"
+    id "io.fabric"
+}
+
+android {
+    buildToolsVersion Versions.buildTools
+    compileSdkVersion Versions.sdkCompile
+
+    defaultConfig {
+        applicationId "com.muffls.tap"
+        minSdkVersion Versions.sdkMin
+        targetSdkVersion Versions.sdkTarget
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "com.muffls.monitoring.Log.Verbosity", "VERBOSITY",
+                    "com.muffls.monitoring.Log.Verbosity.INFO"
+        }
+        debug {
+            debuggable true
+            buildConfigField "com.muffls.monitoring.Log.Verbosity", "VERBOSITY",
+                    "com.muffls.monitoring.Log.Verbosity.DEBUG"
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+    }
+}
+
+dependencies {
+    implementation Libs.coroutinesCore
+    implementation project(':common:android')
+    implementation project(':common:business')
+    implementation project(':common:time')
+    implementation project(':libs:lifecycle-android')
+
+    implementation project(':monitoring-android')
+    implementation project(':features:main')
+
+    compileOnly Libs.roomRuntime
+
+    // Dagger
+    implementation Libs.dagger
+    kapt Libs.daggerCompiler
+
+    implementation Libs.firebaseAnalytics
+
+    androidTestImplementation project(":testing")
+    androidTestImplementation Libs.androidxTestCore
+    androidTestImplementation Libs.androidxTestJUnit
+    androidTestImplementation Libs.androidxTestRunner
+    androidTestImplementation Libs.androidxTestRules
+    androidTestImplementation Libs.androidxTestEspresso
+    androidTestImplementation project(':libs:room')
+}
+
+apply plugin: 'com.google.gms.google-services'
