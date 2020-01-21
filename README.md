@@ -1,4 +1,4 @@
-# Sample app for a multi module reactive clean architecture on Android
+# Multi Module Reactive Clean Architecture
 
 The app displays a screen that the user can tap on. Each tap of the user increases the tap count as
  well the tap level of the user. The purpose of this app is to demonstrate how a reactive
@@ -13,3 +13,5 @@ The app is structured into four different main parts:
 * [App](./app) - is the main component. It knows all components and sets up the app. It should be 
 kept as small as possible.
 
+[1]: https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
+[2]: https://developer.android.com/topic/libraries/architecture/viewmodel
