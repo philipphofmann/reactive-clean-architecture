@@ -1,11 +1,15 @@
-# Multi Module Reactive Clean Architecture
+# Reactive Clean Architecture
 
+The purpose of this app is to demonstrate how a reactive
+ [Clean Architecture][1] with Room, Coroutines, multiple modules and the
+ [Android Jetpack ViewModels][2] can be achieved on Android.
+
+## Functionality
 The app displays a screen that the user can tap on. Each tap of the user increases the tap count as
- well the tap level of the user. The purpose of this app is to demonstrate how a reactive
- [Clean Architecture][1] with Room, Coroutines, multiple modules and the [Android Jetpack ViewModels][2]
- can be achieved on Android.
+ well the tap level of the user.
 
 
+## Structure
 The app is structured into four different main parts:
 * [Features](./features) - contains the user facing features of the app.
 * [Common](./common) - contains reusable modules that are used in multiple parts of the app.
