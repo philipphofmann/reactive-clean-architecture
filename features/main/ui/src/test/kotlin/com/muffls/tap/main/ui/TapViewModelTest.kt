@@ -2,7 +2,6 @@ package com.muffls.tap.main.ui
 
 import com.example.common.android.resource.TestResourceProvider
 import com.muffls.common.business.UUIDGenerator
-import com.muffls.monitoring.Log
 import com.muffls.tap.main.business.domain.AddTapUseCase
 import com.muffls.tap.main.business.domain.InMemoryTapRepository
 import com.muffls.tap.main.business.domain.LevelDataUseCase
@@ -11,6 +10,7 @@ import com.muffls.testing.MainCoroutineRule
 import com.muffls.testing.assertValue
 import com.muffls.testing.mock
 import com.muffls.time.TestCurrentTimeProvider
+import io.sentry.Sentry
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Rule
@@ -26,7 +26,7 @@ class TapViewModelTest {
     @Before
     fun before() {
         TestCurrentTimeProvider.init()
-        Log.init(mock(), Log.Verbosity.DEBUG)
+        Sentry.bindClient(mock())
         tapRepository = InMemoryTapRepository()
 
         sut = TapViewModel(

@@ -1,7 +1,7 @@
 package com.muffls.tap.main.ui
 
 import androidx.lifecycle.ViewModel
-import com.muffls.monitoring.Log
+import io.sentry.Sentry
 import kotlinx.coroutines.channels.ConflatedBroadcastChannel
 import kotlinx.coroutines.channels.sendBlocking
 import kotlinx.coroutines.flow.Flow
@@ -21,13 +21,11 @@ abstract class BaseViewModel<State, Action> : ViewModel() {
         if (BuildConfig.DEBUG) {
             stateTransitions.add(StateTransition(action, currentState, newState))
 
-            Log.d(
-                this::class.java.simpleName,
-                "Changing state\n" +
+            Sentry.captureMessage("Changing state\n" +
                     "Action:  $action\n" +
                     "Current: $currentState\n" +
-                    "New:     $newState"
-            )
+                    "New:     $newState")
+
         }
 
         currentState = newState

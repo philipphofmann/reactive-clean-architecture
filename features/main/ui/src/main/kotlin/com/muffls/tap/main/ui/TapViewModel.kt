@@ -60,4 +60,3 @@ class TapViewModel @Inject constructor(
         data class LevelDataLoaded(val levelData: LevelData) : Action()
     }
 }
-

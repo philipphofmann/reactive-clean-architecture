@@ -3,7 +3,6 @@ plugins {
     id "kotlin-android"
     id "kotlin-kapt"
     id "kotlin-android-extensions"
-    id "io.fabric"
 }
 
 android {
@@ -25,13 +24,9 @@ android {
             minifyEnabled true
             debuggable false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField "com.muffls.monitoring.Log.Verbosity", "VERBOSITY",
-                    "com.muffls.monitoring.Log.Verbosity.INFO"
         }
         debug {
             debuggable true
-            buildConfigField "com.muffls.monitoring.Log.Verbosity", "VERBOSITY",
-                    "com.muffls.monitoring.Log.Verbosity.DEBUG"
         }
     }
 
@@ -54,12 +49,11 @@ android {
 
 dependencies {
     implementation Libs.coroutinesCore
+    implementation Libs.sentry
     implementation project(':common:android')
     implementation project(':common:business')
     implementation project(':common:time')
     implementation project(':libs:lifecycle-android')
-
-    implementation project(':monitoring-android')
     implementation project(':features:main')
 
     compileOnly Libs.roomRuntime
@@ -67,8 +61,6 @@ dependencies {
     // Dagger
     implementation Libs.dagger
     kapt Libs.daggerCompiler
-
-    implementation Libs.firebaseAnalytics
 
     androidTestImplementation project(":testing")
     androidTestImplementation Libs.androidxTestCore
@@ -78,5 +70,3 @@ dependencies {
     androidTestImplementation Libs.androidxTestEspresso
     androidTestImplementation project(':libs:room')
 }
-
-apply plugin: 'com.google.gms.google-services'

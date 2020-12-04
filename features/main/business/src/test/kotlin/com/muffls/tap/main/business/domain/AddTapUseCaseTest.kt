@@ -17,7 +17,6 @@ class AddTapUseCaseTest {
     private lateinit var tapRepository: InMemoryTapRepository
     private lateinit var uuidGenerator: UUIDGenerator
 
-
     @Before
     fun before() {
         TestCurrentTimeProvider.init()

@@ -8,6 +8,4 @@ include ':app',
         ':features:main:ui',
         ':libs:room',
         ':libs:lifecycle-android',
-        ':monitoring',
-        ':monitoring-android',
         ':testing'

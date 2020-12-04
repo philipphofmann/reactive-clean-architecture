@@ -32,7 +32,6 @@ class DefaultTapRepositoryTest {
     fun noTaps() = runBlockingWithTimeOut {
         sut.tapCount.assertValue(0L)
         sut.all.assertValue(emptyList())
-
     }
 
     @Test

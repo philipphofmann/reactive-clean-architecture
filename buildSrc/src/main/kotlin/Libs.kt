@@ -21,17 +21,11 @@ object Libs {
     const val constraintLayout =
         "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
 
-    const val crashlytics = "com.crashlytics.sdk.android:crashlytics:${Versions.crashlytics}"
-    const val fabric = "io.fabric.tools:gradle:${Versions.fabric}"
-    const val firebaseAnalytics =
-        "com.google.firebase:firebase-analytics:${Versions.firebaseAnalytics}"
-
     const val dagger = "com.google.dagger:dagger:${Versions.dagger}"
     const val daggerCompiler = "com.google.dagger:dagger-compiler:${Versions.dagger}"
 
     val javaxInject = "javax.inject:javax.inject:${Versions.javaxInject}"
 
-    const val googleServices = "com.google.gms:google-services:${Versions.googleServices}"
     const val gradleBuildTools = "com.android.tools.build:gradle:${Versions.gradlePlugin}"
 
     const val kotlinStandardLibrary = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}"
@@ -59,4 +53,6 @@ object Libs {
     const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
     const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
     const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
+
+    const val sentry = "io.sentry:sentry-android:${Versions.sentry}"
 }

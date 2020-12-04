@@ -1,7 +1,7 @@
 autoCorrect: true
 
 build:
-  maxIssues: 0
+  maxIssues: 2
   weights:
     complexity: 2
     formatting: 1

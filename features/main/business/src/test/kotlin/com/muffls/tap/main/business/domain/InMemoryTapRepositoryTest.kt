@@ -41,7 +41,6 @@ class InMemoryTapRepositoryTest {
         saveTap("1")
         sut.all.assertValue(listOf(createTap("1")))
 
-
         saveTap("3")
         sut.all.assertValue(listOf(createTap("1"), createTap("3")))
     }

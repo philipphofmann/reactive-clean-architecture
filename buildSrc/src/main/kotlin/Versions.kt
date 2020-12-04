@@ -18,15 +18,12 @@ object Versions {
 
     const val appcompat = "1.1.0-alpha05"
     const val constraintLayout = "1.1.3"
-    const val coroutines = "1.3.1"
-    const val crashlytics = "2.9.9"
+    const val coroutines = "1.3.0"
     const val dagger = "2.14.1"
     const val javaxInject = "1"
-    const val fabric = "1.31.1"
-    const val firebaseAnalytics = "17.2.0"
-    const val googleServices = "4.3.2"
     const val gradlePlugin = "3.5.0"
     const val kotlin = "1.3.61"
     const val lifecycle = "2.2.0-rc03"
     const val room = "2.2.3"
+    const val sentry = "3.1.0"
 }

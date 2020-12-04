@@ -6,7 +6,7 @@ android {
 
 dependencies {
     implementation Libs.coroutinesCore
-    implementation project(':monitoring')
+    implementation Libs.sentry
     implementation project(':common:android')
     implementation project(':features:main:business')
     implementation project(':libs:lifecycle-android')
